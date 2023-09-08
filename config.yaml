@@ -1,0 +1,19 @@
+http:
+  routers:
+    router0:
+      rule: "PathPrefix(`/`)"
+      service: "service-foo"
+    router-start:
+      rule: "Host(`*`)"
+      service: "start-service"
+      priority: -65535
+
+  services:
+    service-start-service:
+      loadBalancer:
+        servers:
+        - url: "http://nginx/"
+    service-foo:
+      loadBalancer:
+        servers:
+        - url: "http://httpbin/"
