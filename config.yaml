@@ -5,11 +5,11 @@ http:
       service: "service-foo"
     router-start:
       rule: "Host(`*`)"
-      service: "start-service"
+      service: "service-start"
       priority: -65535
 
   services:
-    service-start-service:
+    service-start:
       loadBalancer:
         servers:
         - url: "http://nginx/"
