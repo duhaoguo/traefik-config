@@ -4,7 +4,7 @@ http:
       rule: "HostHeader(`a238c7319fdb042beacd861c3b3066dc-1540058085.us-east-1.elb.amazonaws.com`) && PathPrefix(`/`)"
       service: "service-foo"
     router-start:
-      rule: "Host(`*`)"
+      rule: "HostHeader(`*`)"
       service: "service-start"
       priority: -65535
 
