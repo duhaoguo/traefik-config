@@ -2,18 +2,21 @@ http:
   routers:
     router0:
       rule: "HostHeader(`a238c7319fdb042beacd861c3b3066dc-1540058085.us-east-1.elb.amazonaws.com`) && PathPrefix(`/`)"
-      service: "service-foo"
+      service: "service-whoami"
+    router1:
+      rule: "HostHeader(`112233.com`) && PathPrefix(`/`)"
+      service: "service-whoami"
     router-start:
       rule: "HostRegexp(`{catchall:.*}`)"
-      service: "service-start"
+      service: "service-httpbin"
       priority: 1
 
   services:
-    service-start:
+    service-whoami:
       loadBalancer:
         servers:
         - url: "http://nginx/"
-    service-foo:
+    service-httpbin:
       loadBalancer:
         servers:
         - url: "http://httpbin/"
