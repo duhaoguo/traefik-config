@@ -6,6 +6,11 @@ http:
     router1:
       rule: "HostHeader(`112233.com`) && PathPrefix(`/`)"
       service: "service-whoami"
+      priority: 65535
+    router2:
+      rule: "HostHeader(`45678.com`) && PathPrefix(`/`)"
+      service: "service-httpbin"
+      priority: 65535
     router-start:
       rule: "HostRegexp(`{catchall:.*}`)"
       service: "service-httpbin"
