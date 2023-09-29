@@ -6,10 +6,6 @@ http:
       priority: 1
 
   services:
-    service-whoami:
-      loadBalancer:
-        servers:
-        - url: "http://nginx/"
     service-httpbin:
       loadBalancer:
         servers:
