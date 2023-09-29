@@ -1,17 +1,6 @@
 http:
   routers:
-    router0:
-      rule: "HostHeader(`a238c7319fdb042beacd861c3b3066dc-1540058085.us-east-1.elb.amazonaws.com`) && PathPrefix(`/`)"
-      service: "service-whoami"
-    router1:
-      rule: "HostHeader(`112233.com`) && PathPrefix(`/`)"
-      service: "service-whoami"
-      priority: 65535
-    router2:
-      rule: "HostHeader(`45678.com`) && PathPrefix(`/`)"
-      service: "service-httpbin"
-      priority: 65535
-    router-start:
+    router-catchall:
       rule: "HostRegexp(`{catchall:.*}`)"
       service: "service-httpbin"
       priority: 1
